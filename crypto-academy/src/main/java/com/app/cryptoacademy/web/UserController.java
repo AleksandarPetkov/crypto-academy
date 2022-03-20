@@ -2,6 +2,7 @@ package com.app.cryptoacademy.web;
 
 import com.app.cryptoacademy.domain.AppUser;
 import com.app.cryptoacademy.domain.Role;
+import com.app.cryptoacademy.dto.UserToRoleFormDTO;
 import com.app.cryptoacademy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,11 +46,11 @@ public class UserController {
         return ResponseEntity.created(uri).body(userService.saveRole(role));
     }
 
-//    @PostMapping("/role/addtouser")
-//    public ResponseEntity<?> addRoleToUser(@RequestBody UserToRoleForm form) {
-//        userService.addRoleToUser(form.getUsername(), form.getRole());
-//        return ResponseEntity.ok().build();
-//    }
+    @PostMapping("/role/addtouser")
+    public ResponseEntity<?> addRoleToUser(@Valid @RequestBody UserToRoleFormDTO form) {
+        userService.addRoleToUser(form.getUsername(), form.getRole());
+        return ResponseEntity.ok().build();
+    }
 
 
 

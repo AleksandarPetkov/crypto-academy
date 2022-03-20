@@ -2,6 +2,7 @@ package com.app.cryptoacademy.service;
 
 import com.app.cryptoacademy.domain.AppUser;
 import com.app.cryptoacademy.domain.Role;
+import com.app.cryptoacademy.excetion.EmptyInputException;
 import com.app.cryptoacademy.excetion.NonExistingEntityException;
 import com.app.cryptoacademy.repo.RoleRepository;
 import com.app.cryptoacademy.repo.UserRepository;
@@ -26,7 +27,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public AppUser saveUser(AppUser user) {
         if (user == null){
-            throw new NonExistingEntityException();
+            throw new EmptyInputException();
         }
         this.userRepository.save(user);
         return user;
@@ -35,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Role saveRole(Role role) {
         if (role == null){
-            throw new NonExistingEntityException();
+            throw new EmptyInputException();
         }
         this.roleRepository.save(role);
         return role;
