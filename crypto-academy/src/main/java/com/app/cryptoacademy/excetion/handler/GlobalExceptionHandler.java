@@ -17,6 +17,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NonExistingEntityException.class)
     public ResponseEntity<String> handleNonExistingInput(NonExistingEntityException ex){
-        return new ResponseEntity<String>("This value do not present in our system", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<String>("The value do not present in our system", HttpStatus.BAD_REQUEST);
     }
 }
